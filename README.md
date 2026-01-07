@@ -1,2 +1,2 @@
-# TEST-RESTAPI-ASP.NET
-Backend Web  server built with ASP.NET Core
+# NZwalks.Server
+Backend Web API for NZwalks built with ASP.NET Core

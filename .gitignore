@@ -1,0 +1,97 @@
+####################################
+# .NET / ASP.NET Core
+####################################
+
+# Build output
+bin/
+obj/
+artifacts/
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio
+.vs/
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Rider / ReSharper
+.idea/
+*.DotSettings.user
+_ReSharper*/
+
+####################################
+# Configuration / Secrets
+####################################
+
+# Environment variables
+.env
+
+# Local development settings (may contain secrets)
+appsettings.Development.json
+
+# Example config should be committed
+!appsettings.Development.example.json
+
+####################################
+# Logs / Temp files
+####################################
+
+*.log
+*.tmp
+*.tlog
+
+####################################
+# Test / Coverage
+####################################
+
+TestResults/
+coverage/
+coverage*.json
+coverage*.xml
+coverage*.info
+
+####################################
+# Node (if frontend exists)
+####################################
+
+node_modules/
+
+####################################
+# OS generated files
+####################################
+
+# Windows
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+####################################
+# Tooling / Misc
+####################################
+
+# Publish output
+publish/
+
+# NuGet
+*.nupkg
+*.snupkg
+
+# Benchmark results
+BenchmarkDotNet.Artifacts/
