@@ -8,6 +8,7 @@ namespace NZwalks.API.Migrations
     /// <inheritdoc />
     public partial class featdbinit : Migration
     {
+
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
