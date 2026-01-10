@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using NZwalks.API.CustomActionFilters;
 using NZwalks.API.Models.Domains;
 using NZwalks.API.Models.DTOs;
 using NZwalks.API.Repository;
@@ -19,12 +20,17 @@ namespace NZwalks.API.Controllers
             this.walkRepository = walkRepository;
         }
         [HttpPost]
-        public async Task<IActionResult> createWalks([FromBody] AddnewalkDto addnewalkDto)
+        [ValidateModel]
+        public async Task<IActionResult> CreateWalks([FromBody] AddnewalkDto addnewalkDto)
         {
+
+
             var reqtoadd = mapper.Map<Walk>(addnewalkDto);
             await walkRepository.CreateWalk(reqtoadd);
             return Ok(mapper.Map<AddnewalkDto>(reqtoadd));
         }
+
+
         [HttpGet]
         public async Task<IActionResult> Getwalks()
         {
@@ -48,8 +54,10 @@ namespace NZwalks.API.Controllers
         }
         [HttpPut]
         [Route("{id:guid}")]
+        [ValidateModel]
         public async Task<IActionResult> UpdateWalk([FromRoute] Guid id, [FromBody] UpdateWalksDto updateWalksDto)
         {
+
 
             //map the dto to model 
             var domainwalkmodel = mapper.Map<Walk>(updateWalksDto);
@@ -59,15 +67,25 @@ namespace NZwalks.API.Controllers
                 return NotFound();
             }
             return Ok(mapper.Map<UpdateWalksDto>(domainwalkmodel));
-
         }
 
 
         [HttpDelete]
         [Route("{id:guid}")]
-        async Task<IActionResult> DeletewalkbyId([FromRoute] Guid id)
+        async Task<IActionResult> Deletewalkbyid([FromRoute] Guid id)
         {
-            return Ok(await walkRepository.Deletewalkbyid(id));
+            var Tobedeleted = await walkRepository.Deletewalkbyid(id);
+            if (Tobedeleted == null)
+            {
+                return NotFound();
+            }
+            //map the domain to dto .
+
+            return Ok(mapper.Map<UpdateWalksDto>(Tobedeleted));
+
+
+
         }
     }
+
 }
