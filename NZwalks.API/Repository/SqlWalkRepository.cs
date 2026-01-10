@@ -36,6 +36,7 @@ namespace NZwalks.API.Repository
 
         async Task<Walk> IWalkRepository.GetWalkbyid(Guid id)
 
+
         {
             return await dbContext.Walks.Include("Region").Include("Difficulty").FirstOrDefaultAsync(x => x.Id == id);
         }
