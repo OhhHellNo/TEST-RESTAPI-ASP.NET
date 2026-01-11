@@ -6,10 +6,13 @@ namespace NZwalks.API.Repository
     {
 
         Task<Walk> CreateWalk(Walk walk);
-        Task<List<Walk>> GetWalks();
+        Task<List<Walk>> GetWalks(string? filterOn = null,
+                                  string? filterQuery = null,
+                                  string? SortBy = null, bool isAscending = true, int pageNum = 1, int PageSize = 1000);
 
         Task<Walk?> GetWalkbyid(Guid id);
         Task<Walk?> Updatewalk(Guid id, Walk walk);
         Task<Walk?> Deletewalkbyid(Guid id);
+
     }
 }
